@@ -1,0 +1,1 @@
+# This is an application which combines the features of Swiggy and Zomato and tries to overcome the drawbacks faced in either of the two.
