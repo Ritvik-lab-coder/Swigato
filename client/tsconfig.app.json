@@ -16,6 +16,7 @@
         "./src/*"
       ]
     },
+    "forceConsistentCasingInFileNames": true,
     /* Bundler mode */
     "moduleResolution": "Bundler",
     "allowImportingTsExtensions": true,
