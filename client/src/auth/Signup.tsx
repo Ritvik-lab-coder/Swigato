@@ -34,7 +34,7 @@ const Signup = () => {
         <div className="flex items-center justify-center min-h-screen">
             <form onSubmit={signupSubmitHandler} className="md:p-8 w-full max-w-md rounded-lg border md:border-gray-200">
                 <div className="mb-4">
-                    <h1 className="font-bold text-5xl text-burntorange">Swigato</h1>
+                    <h1 className="font-bold text-5xl text-burntorange text-center">Swigato</h1>
                 </div>
                 <div className="mb-4">
                     <div className="relative">
@@ -78,7 +78,7 @@ const Signup = () => {
                     }
                 </div>
                 <Separator />
-                <p className="mt-4">Already have an account ? <Link to={'/login'} className="text-blue-500">Login</Link></p>
+                <p className="mt-4 text-center">Already have an account ? <Link to={'/login'} className="text-blue-500">Login</Link></p>
             </form>
         </div>
     )
