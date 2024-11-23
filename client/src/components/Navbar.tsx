@@ -125,7 +125,7 @@ const MobileNavbar = () => {
                         <HandPlatter />
                         <span>Orders</span>
                     </Link>
-                    <Link to={'/profile'} className="flex items-center gap-4 hover:bg-gray-200 px-2 py-2 rounded-lg cursor-pointer hover:text-red text-burntorange font-medium">
+                    <Link to={'/cart'} className="flex items-center gap-4 hover:bg-gray-200 px-2 py-2 rounded-lg cursor-pointer hover:text-red text-burntorange font-medium">
                         <ShoppingCart />
                         <span>Cart (0)</span>
                     </Link>
