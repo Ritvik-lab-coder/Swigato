@@ -1,5 +1,5 @@
 import { Timer } from 'lucide-react'
-import RestoBanner from '../assets/hero.png'
+import RestoBanner from '../assets/food.jpg'
 import { Badge } from './ui/badge'
 import AvailableMenu from './AvailableMenu'
 
