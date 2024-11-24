@@ -2,8 +2,11 @@ import { Minus, Plus } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 import { Button } from "./ui/button"
 import { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "./ui/table"
+import { useState } from "react"
+import ConfirmOrder from "./ConfirmOrder"
 
 const Cart = () => {
+    const [open, setOpen] = useState<boolean>(false)
     return (
         <div className="flex flex-col max-w-7xl mx-auto my-10">
             <div className="flex justify-end">
@@ -43,15 +46,16 @@ const Cart = () => {
                     </TableRow>
                 </TableBody>
                 <TableFooter>
-                    <TableRow>
+                    <TableRow className="text-2xl font-bold">
                         <TableCell colSpan={4} className="text-red font-bold">Total</TableCell>
                         <TableCell className="text-right text-red font-bold">₹80</TableCell>
                     </TableRow>
                 </TableFooter>
             </Table>
-            <div className="flex justify-end my-5">
+            <div onClick={() => setOpen(true)} className="flex justify-end my-5">
                 <Button className="bg-burntorange hover:bg-goldenyellow">Proceed to Checkout</Button>
             </div>
+            <ConfirmOrder open={open} setOpen={setOpen} />
         </div>
     )
 }

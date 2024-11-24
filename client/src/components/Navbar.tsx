@@ -31,7 +31,7 @@ const Navbar = () => {
                                         <MenubarContent>
                                             <Link to={'/admin/restaurant'} className="text-burntorange font-semibold"><MenubarItem>Restaurant</MenubarItem></Link>
                                             <Link to={'/admin/menu'} className="text-burntorange font-semibold"><MenubarItem>Menu</MenubarItem></Link>
-                                            <Link to={'/admin/orders'} className="text-burntorange font-semibold"><MenubarItem>Orders</MenubarItem></Link>
+                                            <Link to={'/admin/orders'} className="text-burntorange font-semibold"><MenubarItem>Restaurant Orders</MenubarItem></Link>
                                         </MenubarContent>
                                     </MenubarMenu>
                                 </Menubar>
@@ -79,7 +79,7 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="md:hidden lg:hidden">
-                    <MobileNavbar />
+                    <MobileNavbar admin={admin} />
                 </div>
             </div>
         </div>
@@ -88,7 +88,8 @@ const Navbar = () => {
 
 export default Navbar
 
-const MobileNavbar = () => {
+const MobileNavbar = ({ admin }: { admin: boolean }) => {
+    const isAdmin: boolean = admin
     return (
         <Sheet>
             <SheetTrigger asChild>
@@ -121,7 +122,7 @@ const MobileNavbar = () => {
                         <User2 />
                         <span>Profile</span>
                     </Link>
-                    <Link to={'/profile'} className="flex items-center gap-4 hover:bg-gray-200 px-2 py-2 rounded-lg cursor-pointer hover:text-red text-burntorange font-medium">
+                    <Link to={'/orders/status'} className="flex items-center gap-4 hover:bg-gray-200 px-2 py-2 rounded-lg cursor-pointer hover:text-red text-burntorange font-medium">
                         <HandPlatter />
                         <span>Orders</span>
                     </Link>
@@ -129,18 +130,18 @@ const MobileNavbar = () => {
                         <ShoppingCart />
                         <span>Cart (0)</span>
                     </Link>
-                    <Link to={'/profile'} className="flex items-center gap-4 hover:bg-gray-200 px-2 py-2 rounded-lg cursor-pointer hover:text-red text-burntorange font-medium">
+                    {isAdmin && <Link to={'/admin/menu'} className="flex items-center gap-4 hover:bg-gray-200 px-2 py-2 rounded-lg cursor-pointer hover:text-red text-burntorange font-medium">
                         <SquareMenu />
                         <span>Menu</span>
-                    </Link>
-                    <Link to={'/profile'} className="flex items-center gap-4 hover:bg-gray-200 px-2 py-2 rounded-lg cursor-pointer hover:text-red text-burntorange font-medium">
+                    </Link>}
+                    {isAdmin && <Link to={'/admin/restaurant'} className="flex items-center gap-4 hover:bg-gray-200 px-2 py-2 rounded-lg cursor-pointer hover:text-red text-burntorange font-medium">
                         <UtensilsCrossed />
                         <span>Restaurant</span>
-                    </Link>
-                    <Link to={'/profile'} className="flex items-center gap-4 hover:bg-gray-200 px-2 py-2 rounded-lg cursor-pointer hover:text-red text-burntorange font-medium">
+                    </Link>}
+                    {isAdmin && <Link to={'/admin/orders'} className="flex items-center gap-4 hover:bg-gray-200 px-2 py-2 rounded-lg cursor-pointer hover:text-red text-burntorange font-medium">
                         <PackageCheck />
                         <span>Restaurant Orders</span>
-                    </Link>
+                    </Link>}
                 </SheetDescription>
                 <SheetFooter className="flex flex-col gap-3">
                     <div className="flex flex-row items-center gap-2">
