@@ -9,29 +9,32 @@ declare global {
     }
 }
 
-export const isAuthenticated = async (request: Request, response: Response, next: NextFunction) => {
+export const isAuthenticated = async (request: Request, response: Response, next: NextFunction): Promise<void> => {
     try {
         const token = request.cookies.token
         if (!token) {
-            return response.status(401).json({
+            response.status(401).json({
                 success: false,
                 message: 'Unauthorized'
             })
+            return
         }
         const decoded = jwt.verify(token, process.env.SECRET_KEY!) as jwt.JwtPayload
         if (!decoded) {
-            return response.status(401).json({
+            response.status(401).json({
                 success: false,
                 message: 'Unauthorized'
             })
+            return
         }
         request.id = decoded.userId
         next()
     } catch (error) {
         console.log(error)
-        return response.status(500).json({
+        response.status(500).json({
             success: false,
             message: 'Internal Server Error',
         })
+        return
     }
 }
